@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CAE Writing Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h2, h3 {
+      color: #004a99;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    select, textarea, input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+    button {
+      background-color: #004a99;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0066cc;
+    }
+    #output {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h2>CAE Writing Part 2 – Generador de Texto (Introducción)</h2>
+  <form id="introForm">
+    <h3>1. Introducción</h3>
+
+    <label for="introConnector">Conector inicial:</label>
+    <select id="introConnector">
+      <option value="There is no doubt that">There is no doubt that</option>
+      <option value="It is widely acknowledged that">It is widely acknowledged that</option>
+      <option value="Nowadays,">Nowadays,</option>
+    </select>
+
+    <label for="introPhrase">Frase comodín (tema):</label>
+    <select id="introPhrase">
+      <option value="the issue of">the issue of</option>
+      <option value="the topic of">the topic of</option>
+      <option value="the debate around">the debate around</option>
+    </select>
+
+    <label for="introTopic">Tema (vocabulario):</label>
+    <select id="introTopic">
+      <option value="climate change">climate change</option>
+      <option value="digital education">digital education</option>
+      <option value="public health">public health</option>
+      <option value="gender equality">gender equality</option>
+      <option value="renewable energy">renewable energy</option>
+    </select>
+
+    <label for="introRelevance">Frase de relevancia:</label>
+    <select id="introRelevance">
+      <option value="has become increasingly relevant in the field of">has become increasingly relevant in the field of</option>
+      <option value="has gained prominence across sectors such as">has gained prominence across sectors such as</option>
+      <option value="is now a central concern within">is now a central concern within</option>
+    </select>
+
+    <label for="introField">Campo general (vocabulario):</label>
+    <select id="introField">
+      <option value="environmental science">environmental science</option>
+      <option value="pedagogy">pedagogy</option>
+      <option value="public health">public health</option>
+      <option value="employment law">employment law</option>
+    </select>
+
+    <label for="introImpact">Frase de impacto final:</label>
+    <select id="introImpact">
+      <option value="Its impact on">Its impact on</option>
+      <option value="The consequences for">The consequences for</option>
+      <option value="The implications for">The implications for</option>
+    </select>
+
+    <label for="introEffect">Efecto asociado (vocabulario):</label>
+    <select id="introEffect">
+      <option value="biodiversity loss">biodiversity loss</option>
+      <option value="academic performance">academic performance</option>
+      <option value="life expectancy">life expectancy</option>
+      <option value="social inequality">social inequality</option>
+    </select>
+
+    <label for="introClosing">Cierre de la introducción:</label>
+    <select id="introClosing">
+      <option value="has made it a topic worthy of discussion.">has made it a topic worthy of discussion.</option>
+      <option value="has generated considerable public and academic interest.">has generated considerable public and academic interest.</option>
+      <option value="has led to widespread debate among experts and citizens alike.">has led to widespread debate among experts and citizens alike.</option>
+    </select>
+
+    <button type="submit">Generar introducción</button>
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    document.getElementById("introForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const connector = document.getElementById("introConnector").value;
+      const phrase = document.getElementById("introPhrase").value;
+      const topic = document.getElementById("introTopic").value;
+      const relevance = document.getElementById("introRelevance").value;
+      const field = document.getElementById("introField").value;
+      const impact = document.getElementById("introImpact").value;
+      const effect = document.getElementById("introEffect").value;
+      const closing = document.getElementById("introClosing").value;
+
+      const intro = `
+        <h3>Introducción Generada:</h3>
+        <p>${connector} ${phrase} <strong>${topic}</strong> ${relevance} <strong>${field}</strong>. ${impact} <strong>${effect}</strong> ${closing}</p>
+      `;
+
+      document.getElementById("output").innerHTML = intro;
+    });
+  </script>
+
+<h2>CAE Writing – Párrafo 1: Desarrollo del Primer Punto</h2>
+<form id="paragraph1Form">
+  <h3>Construye tu párrafo seleccionando:</h3>
+
+  <label for="p1Connector">🔗 Conector inicial (función: introducción de argumento):</label>
+  <select id="p1Connector">
+    <option value="To begin with">To begin with</option>
+    <option value="One key aspect to consider is">One key aspect to consider is</option>
+    <option value="First and foremost">First and foremost</option>
+  </select>
+
+  <label for="p1Topic">🧩 Frase comodín – Declaración del punto principal (tipo: idea principal):</label>
+  <select id="p1Topic">
+    <option value="One key aspect to consider is">One key aspect to consider is</option>
+    <option value="A fundamental issue lies in">A fundamental issue lies in</option>
+    <option value="An important concern is">An important concern is</option>
+  </select>
+
+  <label for="p1Object">📘 Objeto o proceso afectado (vocabulario temático):</label>
+  <select id="p1Object">
+    <option value="the lack of renewable energy investment">the lack of renewable energy investment</option>
+    <option value="the poor implementation of digital tools">the poor implementation of digital tools</option>
+    <option value="limited access to healthcare services">limited access to healthcare services</option>
+  </select>
+
+  <label for="p1Subject">👥 Sujeto afectado (vocabulario temático):</label>
+  <select id="p1Subject">
+    <option value="citizens">citizens</option>
+    <option value="students">students</option>
+    <option value="consumers">consumers</option>
+    <option value="patients">patients</option>
+  </select>
+
+  <label for="p1Cause">🧠 Causa (frase comodín causal):</label>
+  <select id="p1Cause">
+    <option value="due to insufficient funding">due to insufficient funding</option>
+    <option value="as a result of outdated regulations">as a result of outdated regulations</option>
+    <option value="because of poor infrastructure">because of poor infrastructure</option>
+  </select>
+
+  <label for="p1Effect">⚠️ Efecto directo (vocabulario temático):</label>
+  <select id="p1Effect">
+    <option value="a decline in service quality">a decline in service quality</option>
+    <option value="inequality in access">inequality in access</option>
+    <option value="increased dropout rates">increased dropout rates</option>
+  </select>
+
+  <label for="p1Place">🌍 Lugar o contexto (vocabulario temático):</label>
+  <select id="p1Place">
+    <option value="in rural areas">in rural areas</option>
+    <option value="within public institutions">within public institutions</option>
+    <option value="across developing countries">across developing countries</option>
+  </select>
+
+  <button type="submit">Generar Párrafo 1</button>
+</form>
+
+
+<script>
+  document.getElementById("paragraph1Form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const connector = document.getElementById("p1Connector").value;
+    const topicPhrase = document.getElementById("p1Topic").value;
+    const object = document.getElementById("p1Object").value;
+    const subject = document.getElementById("p1Subject").value;
+    const cause = document.getElementById("p1Cause").value;
+    const effect = document.getElementById("p1Effect").value;
+    const place = document.getElementById("p1Place").value;
+
+    const para1 = `
+      <h3>Párrafo 1 Generado:</h3>
+      <p>${connector}, ${topicPhrase} <strong>${object}</strong>.</p>
+      <p><strong>${subject}</strong> are affected ${cause}. This has had a direct impact on <strong>${effect}</strong>, particularly <strong>${place}</strong>.</p>
+    `;
+    document.getElementById("output_paragraph1").innerHTML = para1;
+  });
+</script>
+
+<section id="output_paragraph1" style="background:#fff;border:1px solid #ccc;padding:20px;margin-top:20px;border-radius:8px;"></section>
+
+<h2>CAE Writing – Párrafo 2: Desarrollo de punto de apoyo o contraste</h2>
+<form id="paragraph2Form">
+  <h3>Completa los campos para construir el párrafo:</h3>
+  <label for="p2Connector">🔗 Conector (función: continuación o contraste):</label>
+  <select id="p2Connector">
+    <option value="In addition">In addition</option>
+    <option value="Moreover">Moreover</option>
+    <option value="On the other hand">On the other hand</option>
+  </select>
+  <label for="p2Phrase">🧩 Frase comodín – Presentación del punto (tipo: apoyo o contraste):</label>
+  <select id="p2Phrase">
+    <option value="Another relevant factor is">Another relevant factor is</option>
+    <option value="A contrasting viewpoint involves">A contrasting viewpoint involves</option>
+    <option value="It is also important to consider">It is also important to consider</option>
+  </select>
+  <label for="p2Object">📘 Objeto o situación clave:</label>
+  <select id="p2Object">
+    <option value="limited digital literacy">limited digital literacy</option>
+    <option value="insufficient government funding">insufficient government funding</option>
+    <option value="lack of public awareness">lack of public awareness</option>
+  </select>
+  <label for="p2Field">📚 Campo relacionado:</label>
+  <select id="p2Field">
+    <option value="educational systems">educational systems</option>
+    <option value="healthcare infrastructure">healthcare infrastructure</option>
+    <option value="labour markets">labour markets</option>
+  </select>
+  <label for="p2Subject">👥 Sujeto implicado:</label>
+  <select id="p2Subject">
+    <option value="students">students</option>
+    <option value="citizens">citizens</option>
+    <option value="job seekers">job seekers</option>
+  </select>
+  <label for="p2Problem">🧠 Problema observado:</label>
+  <select id="p2Problem">
+    <option value="struggle to adapt to modern requirements">struggle to adapt to modern requirements</option>
+    <option value="face unequal access to essential services">face unequal access to essential services</option>
+    <option value="lack the skills to succeed in competitive environments">lack the skills to succeed in competitive environments</option>
+  </select>
+  <label for="p2Solution">✅ Solución propuesta:</label>
+  <select id="p2Solution">
+    <option value="the implementation of inclusive policies">the implementation of inclusive policies</option>
+    <option value="a shift towards targeted training programs">a shift towards targeted training programs</option>
+    <option value="greater investment in public awareness campaigns">greater investment in public awareness campaigns</option>
+  </select>
+  <button type="submit">Generar Párrafo 2</button>
+</form>
+
+<section id="output_paragraph2" style="background:#fff;border:1px solid #ccc;padding:20px;margin-top:20px;border-radius:8px;"></section>
+
+<script>
+  document.getElementById("paragraph2Form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const connector = document.getElementById("p2Connector").value;
+    const phrase = document.getElementById("p2Phrase").value;
+    const object = document.getElementById("p2Object").value;
+    const field = document.getElementById("p2Field").value;
+    const subject = document.getElementById("p2Subject").value;
+    const problem = document.getElementById("p2Problem").value;
+    const solution = document.getElementById("p2Solution").value;
+
+    const para2 = `
+      <h3>Párrafo 2 Generado:</h3>
+      <p>${connector}, ${phrase} <strong>${object}</strong>.</p>
+      <p>In the field of <strong>${field}</strong>, <strong>${subject}</strong> often ${problem}. This suggests the need for ${solution}.</p>
+    `;
+    document.getElementById("output_paragraph2").innerHTML = para2;
+  });
+</script>
+
+
+<h2>CAE Writing – Párrafo 3: Matiz, ejemplo o limitación</h2>
+<form id="paragraph3Form">
+  <h3>Completa los campos para construir el tercer párrafo opcional:</h3>
+
+  <label for="p3Connector">🔗 Conector (función: matiz o ampliación):</label>
+  <select id="p3Connector">
+    <option value="It is also worth noting that">It is also worth noting that</option>
+    <option value="However, this is not always the case">However, this is not always the case</option>
+    <option value="Interestingly">Interestingly</option>
+  </select>
+
+  <label for="p3Limitation">🧩 Frase comodín – matiz o limitación (estructura general):</label>
+  <select id="p3Limitation">
+    <option value="not all regions benefit equally from current measures">not all regions benefit equally from current measures</option>
+    <option value="implementation varies significantly between countries">implementation varies significantly between countries</option>
+    <option value="access remains limited in marginalised communities">access remains limited in marginalised communities</option>
+  </select>
+
+  <label for="p3Example">🌍 Ejemplo o contexto específico:</label>
+  <select id="p3Example">
+    <option value="In sub-Saharan Africa">In sub-Saharan Africa</option>
+    <option value="In remote rural areas">In remote rural areas</option>
+    <option value="In certain public institutions">In certain public institutions</option>
+  </select>
+
+  <label for="p3Effect">⚠️ Consecuencia del ejemplo:</label>
+  <select id="p3Effect">
+    <option value="this has led to uneven progress">this has led to uneven progress</option>
+    <option value="development remains stagnant">development remains stagnant</option>
+    <option value="social inequality has widened">social inequality has widened</option>
+  </select>
+
+  <label for="p3Policy">📘 Política o proceso paralelo (opcional):</label>
+  <select id="p3Policy">
+    <option value="despite recent investments in infrastructure">despite recent investments in infrastructure</option>
+    <option value="even with international support programs">even with international support programs</option>
+    <option value="although national strategies exist">although national strategies exist</option>
+  </select>
+
+  <button type="submit">Generar Párrafo 3</button>
+</form>
+
+<section id="output_paragraph3" style="background:#fff;border:1px solid #ccc;padding:20px;margin-top:20px;border-radius:8px;"></section>
+
+<script>
+  document.getElementById("paragraph3Form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const connector = document.getElementById("p3Connector").value;
+    const limitation = document.getElementById("p3Limitation").value;
+    const example = document.getElementById("p3Example").value;
+    const effect = document.getElementById("p3Effect").value;
+    const policy = document.getElementById("p3Policy").value;
+
+    const para3 = `
+      <h3>Párrafo 3 Generado:</h3>
+      <p>${connector}, ${limitation}.</p>
+      <p>${example}, ${effect}, ${policy}.</p>
+    `;
+    document.getElementById("output_paragraph3").innerHTML = para3;
+  });
+</script>
+
+
+<h2>CAE Writing – Conclusión</h2>
+<form id="conclusionForm">
+  <h3>Completa los campos para generar tu párrafo de cierre:</h3>
+
+  <label for="cConnector">🔗 Conector inicial de conclusión:</label>
+  <select id="cConnector">
+    <option value="To sum up">To sum up</option>
+    <option value="In conclusion">In conclusion</option>
+    <option value="Ultimately">Ultimately</option>
+  </select>
+
+  <label for="cSummary">🧩 Frase comodín – Resumen de ideas principales:</label>
+  <select id="cSummary">
+    <option value="the arguments presented above highlight the importance of addressing">the arguments presented above highlight the importance of addressing</option>
+    <option value="the evidence discussed confirms the need to focus on">the evidence discussed confirms the need to focus on</option>
+    <option value="this discussion reinforces the relevance of">this discussion reinforces the relevance of</option>
+  </select>
+
+  <label for="cTopic">📘 Tema general:</label>
+  <select id="cTopic">
+    <option value="renewable energy initiatives">renewable energy initiatives</option>
+    <option value="digital education policies">digital education policies</option>
+    <option value="public health reform">public health reform</option>
+  </select>
+
+  <label for="cSuggestion">✅ Sugerencia concreta:</label>
+  <select id="cSuggestion">
+    <option value="greater public investment">greater public investment</option>
+    <option value="broader access to services">broader access to services</option>
+    <option value="stronger regulatory frameworks">stronger regulatory frameworks</option>
+  </select>
+
+  <label for="cOutcome">🎯 Resultado esperado:</label>
+  <select id="cOutcome">
+    <option value="improve long-term sustainability">improve long-term sustainability</option>
+    <option value="ensure greater equality">ensure greater equality</option>
+    <option value="enhance efficiency and access">enhance efficiency and access</option>
+  </select>
+
+  <label for="cClosing">📌 Frase de cierre final:</label>
+  <select id="cClosing">
+    <option value="Only through coordinated efforts can lasting solutions be achieved.">Only through coordinated efforts can lasting solutions be achieved.</option>
+    <option value="Policymakers and citizens alike must act now to drive positive change.">Policymakers and citizens alike must act now to drive positive change.</option>
+    <option value="The future of our communities depends on how we respond today.">The future of our communities depends on how we respond today.</option>
+  </select>
+
+  <button type="submit">Generar Conclusión</button>
+</form>
+
+<section id="output_conclusion" style="background:#fff;border:1px solid #ccc;padding:20px;margin-top:20px;border-radius:8px;"></section>
+
+<script>
+  document.getElementById("conclusionForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const connector = document.getElementById("cConnector").value;
+    const summary = document.getElementById("cSummary").value;
+    const topic = document.getElementById("cTopic").value;
+    const suggestion = document.getElementById("cSuggestion").value;
+    const outcome = document.getElementById("cOutcome").value;
+    const closing = document.getElementById("cClosing").value;
+
+    const conclusion = `
+      <h3>Conclusión Generada:</h3>
+      <p>${connector}, ${summary} <strong>${topic}</strong>.</p>
+      <p>It would be advisable to support <strong>${suggestion}</strong> in order to <strong>${outcome}</strong>. ${closing}</p>
+    `;
+    document.getElementById("output_conclusion").innerHTML = conclusion;
+  });
+</script>
+
+</body>
+</html>
